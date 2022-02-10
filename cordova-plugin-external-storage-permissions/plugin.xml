@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-external-storage-permissions" version="1.0.0"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0">
+
+    <name>ExternalStoragePermissions</name>
+    <description>Android all files access permission helper plugin.</description>
+    <author>Ruchi Tiwari</author>
+    <engines>
+        <engine name="cordova" version=">=5.0.0" />
+    </engines>
+
+    <!-- android -->
+    <platform name="android">
+        <js-module name="ExternalStoragePermissions" src="www/ExternalStoragePermissions.js">
+            <clobbers target="ExternalStoragePermissions" />
+        </js-module>
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Permissions">
+                <param name="android-package" value="cordova.plugin.permissions.ExternalStoragePermissions" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/cordova/plugin/permissions/ExternalStoragePermissions.java" target-dir="src/cordova/plugin/permissions"/>
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <js-module name="ExternalStoragePermissions" src="www/ExternalStoragePermissionsDummy.js">
+            <clobbers target="ExternalStoragePermissions" />
+        </js-module>
+    </platform>
+
+    <!-- browser -->
+    <platform name="browser">
+        <js-module name="ExternalStoragePermissions" src="www/ExternalStoragePermissionsDummy.js">
+            <clobbers target="ExternalStoragePermissions" />
+        </js-module>
+    </platform>
+
+</plugin>

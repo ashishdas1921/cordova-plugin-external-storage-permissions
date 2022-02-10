@@ -1,0 +1,26 @@
+{
+  "name": "cordova-plugin-external-storage-permissions",
+  "version": "1.0.0",
+  "description": "Android all files access permission helper plugin.",
+  "cordova": {
+    "id": "cordova-plugin-external-storage-permissions",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-browser",
+    "cordova-ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=5.0.0"
+    }
+  ],
+  "author": "Ruchi Tiwari",
+  "license": "Apache 2.0"
+}
