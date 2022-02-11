@@ -26,4 +26,34 @@ function onDeviceReady() {
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+
+
+    var permissions = ExternalStoragePermissions;
+    var list = [
+        permissions.READ_EXTERNAL_STORAGE,
+        permissions.WRITE_EXTERNAL_STORAGE
+      ];
+    permissions.checkPermission(list, function( status ){
+        console.log("Ashish-checkPermission" + JSON.stringify(status))
+      if ( status.hasPermission ) {
+        console.log("Yes :D ");
+      } else {
+        console.warn("No :( ");
+        permissions.requestPermissions(list, success, error);
+      }
+    });
+
+
 }
+function error() {
+          console.warn('Camera permission is not turned on asda');
+        }
+
+        function success( status ) {
+        console.log("Ashish-success" + JSON.stringify(status))
+          if( !status.hasPermission ) error();
+          else
+          console.log("Yes :D ");
+        }
+
+
